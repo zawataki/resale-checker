@@ -6,7 +6,7 @@
   },
   "name": "resale-checker",
   "description": "Check resale info",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "example.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
