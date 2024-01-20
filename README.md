@@ -7,7 +7,7 @@ A script to check if a resale ticket exists in the given event of provided by Ti
     npm install
     ```
 
-2. Run script
+2. Run script. Usually, it finishes a few seconds.
     ```bash
     node check-resale.js --url 'https://ticket-PIA-event-URL'
     ```
