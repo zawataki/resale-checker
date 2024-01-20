@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "command-line-usage": "^7.0.1",
+    "log4js": "^6.9.1",
+    "puppeteer": "^21.7.0"
+  },
+  "name": "resale-checker",
+  "description": "Check resale info",
+  "version": "0.0.1",
+  "main": "example.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zawataki/resale-checker.git"
+  },
+  "author": "Yuki Takizawa",
+  "license": "SEE LICENSE IN LICENSE.",
+  "bugs": {
+    "url": "https://github.com/zawataki/resale-checker/issues"
+  },
+  "homepage": "https://github.com/zawataki/resale-checker#readme"
+}
