@@ -110,7 +110,6 @@ for (const requiredParamName of requiredParameterNames) {
   }
 }
 
-const EMAIL_ADDRESS = options.email;
 const EVENT_URL = options.url;
 
 (async () => {
