@@ -125,16 +125,15 @@ const EVENT_URL = options.url;
 
     log.info('Go to event page');
     await page.goto(EVENT_URL);
-    const resaleInfoSelector = 'div.Y15-sales__buttons';
+    const resaleInfoSelector = 'a#resale-link';
     const resaleInfoElement = await page.waitForSelector(resaleInfoSelector);
-    const resaleInfoText = await resaleInfoElement?.evaluate(el => el.textContent);
-
-    if (!resaleInfoText.includes('リセールチケット販売中')) {
+    const hasResaleInfo = await resaleInfoElement.isVisible();
+    if (!hasResaleInfo) {
       console.log('A resale ticket does not exist.');
       return;
     }
 
-    const resaleTicketLink = await resaleInfoElement.$eval("a", (el) => el.href);
+    const resaleTicketLink = await resaleInfoElement.evaluate(el => el.href);
     console.log('A resale ticket exists. See ' + resaleTicketLink);
   } catch (error) {
     log.error(error);
