@@ -125,16 +125,16 @@ const EVENT_URL = options.url;
 
     log.info('Go to event page');
     await page.goto(EVENT_URL);
-    const resaleInfoSelector = 'a#resale-link';
-    const resaleInfoElement = await page.waitForSelector(resaleInfoSelector);
-    const hasResaleInfo = await resaleInfoElement.isVisible();
-    if (!hasResaleInfo) {
+    const resaleLinkSelector = 'a#resale-link';
+    const resaleLinkElement = await page.waitForSelector(resaleLinkSelector);
+    const hasResaleLink = await resaleLinkElement.isVisible();
+    if (!hasResaleLink) {
       console.log('A resale ticket does not exist.');
       return;
     }
 
-    const resaleTicketLink = await resaleInfoElement.evaluate(el => el.href);
-    console.log('A resale ticket exists. See ' + resaleTicketLink);
+    const resaleLink = await resaleLinkElement.evaluate(el => el.href);
+    console.log('A resale ticket exists. See ' + resaleLink);
   } catch (error) {
     log.error(error);
     process.exit(1);
