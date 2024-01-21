@@ -119,7 +119,7 @@ const EVENT_URL = options.url;
 
   try {
     const page = await browser.newPage();
-    page.setDefaultNavigationTimeout(5 * 1000);
+    page.setDefaultTimeout(5 * 1000);
 
     await page.setViewport({width: 375, height: 667});
 
