@@ -13,14 +13,23 @@ A script to check if a resale ticket exists in the given event of provided by Ti
     ```
 
 ## If you know a resale page URL
-You can check resale info using the URL.
+The following shell script opens the resale ticket page when it exists.
 ```bash
-RESALE_URL="https://cloak.pia.jp/resale/item/list?eventCd=..."
+PREV_URL=""
+RESALE_PAGE_URL="https://cloak.pia.jp/resale/item/list?eventCd=..."
 
 while true; do
   date
 
-  if curl -si "$RESALE_URL" | fgrep 'Location: https://cloak.pia.jp/resale'; then
+  if curl -si "$RESALE_PAGE_URL" | fgrep 'Location: https://cloak.pia.jp/resale' > /tmp/resale-result; then
+
+    FOUND_URL="$(cat /tmp/resale-result | cut -d' ' -f2 | tr -d '\n\r')"
+    echo "URL: $FOUND_URL"
+    if [ "$FOUND_URL" != "$PREV_URL" ]; then
+      open "$FOUND_URL"
+      PREV_URL="$FOUND_URL"
+    fi
+
     say -v Flo 'resale found'
   fi
 
